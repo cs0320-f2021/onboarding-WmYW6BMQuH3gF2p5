@@ -1,4 +1,4 @@
-# README
+# README * change for editor
 To build use:
 `mvn package`
 
