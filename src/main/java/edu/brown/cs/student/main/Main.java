@@ -72,7 +72,6 @@ public final class Main {
           String calculationAsk = arguments[0];
           Double number1 = Double.parseDouble(arguments[1]);
           Double number2 = Double.parseDouble(arguments[2]);
-          System.out.println(arguments[0]);
           // TODO: complete your REPL by adding commands for addition "add" and subtraction
           //  "subtract"
           MathBot mathProblem = new MathBot();
