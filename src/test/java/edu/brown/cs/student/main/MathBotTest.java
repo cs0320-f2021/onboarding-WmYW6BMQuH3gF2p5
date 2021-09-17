@@ -28,4 +28,28 @@ public class MathBotTest {
   }
 
   // TODO: add more unit tests of your own
+
+  @Test
+  public void testNegativeAddition(){
+    MathBot negAdd = new MathBot();
+    double negFirstNotOverall = negAdd.add(-3, 4);
+    assertEquals(1,negFirstNotOverall, 0.01);
+    double negSecondNotOverall = negAdd.add(5, -2);
+    assertEquals(3, negSecondNotOverall, 0.01);
+    double negFirstYOverall = negAdd.add(-6.5,3);
+    assertEquals(-3.5, negFirstYOverall, 0.01);
+    double negSecondYOverall = negAdd.add(1,-5.8);
+    assertEquals(-4.8, negSecondYOverall, 0.01);
+    double negBoth = negAdd.add(-3.6, -4.4);
+    assertEquals(-8, negBoth, 0.01);
+  }
+
+  @Test
+  public void testZero(){
+    MathBot forZero = new MathBot();
+    double firstInputZero = forZero.add(0, 22);
+    assertEquals(22, firstInputZero, 0.01);
+    double equalsZeroFirstInputNeg = forZero.add(-24, 24);
+    assertEquals(0, equalsZeroFirstInputNeg, 0.01);
+  }
 }

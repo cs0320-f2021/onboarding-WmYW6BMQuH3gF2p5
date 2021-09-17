@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.math.MathContext;
+import java.util.ArrayList;
 import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
@@ -67,9 +69,21 @@ public final class Main {
         try {
           input = input.trim();
           String[] arguments = input.split(" ");
+          String calculationAsk = arguments[0];
+          Double number1 = Double.parseDouble(arguments[1]);
+          Double number2 = Double.parseDouble(arguments[2]);
           System.out.println(arguments[0]);
           // TODO: complete your REPL by adding commands for addition "add" and subtraction
           //  "subtract"
+          MathBot mathProblem = new MathBot();
+          Double calculation = 0.0;
+          if(calculationAsk.equals("add")){
+            calculation = mathProblem.add(number1, number2);
+          }
+          if(calculationAsk.equals("subtract")){
+            calculation = mathProblem.subtract(number1, number2);
+          }
+          System.out.println(calculation);
         } catch (Exception e) {
           // e.printStackTrace();
           System.out.println("ERROR: We couldn't process your input");
