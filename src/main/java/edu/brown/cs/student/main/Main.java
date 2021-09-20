@@ -1,11 +1,6 @@
 package edu.brown.cs.student.main;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import java.io.*;
 import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.Map;
@@ -69,17 +64,40 @@ public final class Main {
         try {
           input = input.trim();
           String[] arguments = input.split(" ");
-          String calculationAsk = arguments[0];
-          Double number1 = Double.parseDouble(arguments[1]);
-          Double number2 = Double.parseDouble(arguments[2]);
+          String UserAsk = arguments[0];
+          if(UserAsk.equals("stars")){
+            String filePath = arguments[1];
+            try(BufferedReader brStar = new BufferedReader(new FileReader(filePath))){
+              String fileNextLine = brStar.readLine();
+              if(fileNextLine.equals("StarID,ProperName,X,Y,Z")){
+                while(true){
+                  fileNextLine = brStar.readLine();
+                  if(fileNextLine != null){
+                    String[] fileContent = fileNextLine.split(",");
+
+                  }
+                  else{
+                    break;
+                  }
+                }
+              }
+              else{
+                System.out.println("Error: The CSV header does not conform to the expected format");
+              }
+            }
+          }
           // TODO: complete your REPL by adding commands for addition "add" and subtraction
           //  "subtract"
           MathBot mathProblem = new MathBot();
           Double calculation = 0.0;
-          if(calculationAsk.equals("add")){
+          if(UserAsk.equals("add")){
+            Double number1 = Double.parseDouble(arguments[1]);
+            Double number2 = Double.parseDouble(arguments[2]);
             calculation = mathProblem.add(number1, number2);
           }
-          if(calculationAsk.equals("subtract")){
+          if(UserAsk.equals("subtract")){
+            Double number1 = Double.parseDouble(arguments[1]);
+            Double number2 = Double.parseDouble(arguments[2]);
             calculation = mathProblem.subtract(number1, number2);
           }
           System.out.println(calculation);

@@ -9,3 +9,6 @@ This will give you a barebones REPL, where you can enter text and you will be ou
 
 To start the server use:
 `./run --gui [--port=<port>]`
+
+
+Collaborators: I received help from Oren Kohavi through Ed Stem. 
